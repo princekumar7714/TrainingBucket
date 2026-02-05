@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+
+#homeimg {
+  background-image: url("https://media.istockphoto.com/id/1480385082/photo/young-multiracial-students-working-in-school-college-library-happy-friends-studying-at.jpg?s=2048x2048&w=is&k=20&c=o3XZ8wooztgnhGtXzfnlvAg4PwJ_OIriIrYwSJd8W5w=");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* dark overlay */
+#homeimg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* 👈 adjust darkness */
+  z-index: 1;
+}
+
+/* content above overlay */
+#homeimg > * {
+  position: relative;
+  z-index: 2;
+}
+
+#mentor{
+  background-image: url("https://cdn.prod.website-files.com/63dad42faac77c57f552854d/646daeb6098830aa25da2c40_Nayan_Verma.webp");
+  background-position: center;
+  background-size: cover;
+  /* height: 340px; */
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#apraoch{
+  background-image: url("https://img.freepik.com/free-photo/city-committed-education-collage-concept_23-2150062204.jpg?t=st=1769698112~exp=1769701712~hmac=2e774703ec9ce40de1f0b93025a9ca1a5b4e25385cba8b157d424a5adf43f7d8");
+ background-position: center;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+}
+
+/* #branch1{
+  background-image: url("https://cdn.prod.website-files.com/63dad42faac77c57f552854d/64feb32b792262060b052a8a_Laptop%20(1)-p-500.webp") ;
+background-position: center;
+background-size: cover;
+height: 400px;
+width: 400px;
+} */
+/* #branch2{
+  background-image: url("https://cdn.prod.website-files.com/63dad42faac77c57f552854d/64feb32b792262060b052a8a_Laptop%20(1)-p-500.webp") ;
+background-position: center;
+background-size: cover;
+/* height: 500px; */
+/* width: 600px; */
+/* background-repeat: no-repeat;
+object-fit:cover; */
+/* } */ 
