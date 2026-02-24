@@ -1,18 +1,30 @@
-import React from "react";
-import BatchNavbar from "../pages/Batch-content/BatchNavbar";
-import upcomingBatches from "../data/batches.js";
+import React, { useState, useEffect } from "react";
+import BatchNavbar from "./Batch-content/BatchNavbar";
 import FindMyBatch from "./Batch-content/FindMyBatch.jsx";
+import BatchEnrollModal from "../BatchEnrollModal.jsx";
+
+const API_BASE = "/api";
 
 function UpcomingBatches() {
+  const [batches, setBatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedBatch, setSelectedBatch] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/batches`)
+      .then((res) => res.json())
+      .then((data) => setBatches(Array.isArray(data) ? data : []))
+      .catch(() => setBatches([]))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <>
       <BatchNavbar />
 
-      {/* MAIN SECTION */}
       <section className="bg-gradient-to-b from-gray-100 to-gray-900 py-14">
         <div className="max-w-7xl mx-auto px-4">
 
-          {/* Heading */}
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
               Upcoming Batches
@@ -22,11 +34,13 @@ function UpcomingBatches() {
             </p>
           </div>
 
-          {/* Batch Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {upcomingBatches.map((batch, index) => (
+            {loading ? (
+              <p className="col-span-full text-center text-white">Loading batches...</p>
+            ) : (
+            batches.map((batch, index) => (
               <div
-                key={index}
+                key={batch.id || index}
                 className="
                   bg-white rounded-2xl p-6
                   shadow-lg hover:shadow-2xl
@@ -44,17 +58,18 @@ function UpcomingBatches() {
                   <p><b>Timing:</b> {batch.timing}</p>
                 </div>
 
-                <button className="mt-5 w-full py-2 rounded-xl bg-yellow-400 font-semibold hover:bg-yellow-500 transition">
+                <button onClick={() => setSelectedBatch(batch)} className="mt-5 w-full py-2 rounded-xl bg-yellow-400 font-semibold hover:bg-yellow-500 transition">
                   Enroll Now
                 </button>
               </div>
-            ))}
+            ))
+            )}
           </div>
         </div>
       </section>
 
-      {/* SEARCH SECTION */}
       <FindMyBatch />
+      {selectedBatch && <BatchEnrollModal batch={selectedBatch} onClose={() => setSelectedBatch(null)} />}
     </>
   );
 }

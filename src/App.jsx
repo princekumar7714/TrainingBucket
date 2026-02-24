@@ -7,10 +7,12 @@ import Batches from './components/pages/Batches'
 import Jobs from './components/pages/Jobs'
 import Blog from './components/pages/Blog'
 import Contact from './components/pages/Contact'
+import BackendStatus from './components/BackendStatus'
+
 function App() {
   return (
    <BrowserRouter>
-   {/* <Navbar/> */}
+   <BackendStatus />
    <Routes>
     <Route path='/'  element={<Home/>}></Route> 
     <Route path='/corporate'  element={<Corporate/>}></Route> 

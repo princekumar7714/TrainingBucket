@@ -1,30 +1,82 @@
+import { useState, useEffect } from "react";
 import blog1 from "../../../assets/blog-img/blog1.webp";
 import blog2 from "../../../assets/blog-img/blog2.webp";
 import blog3 from "../../../assets/blog-img/blog3.webp";
 
+const blogImages = { blog1, blog2, blog3 };
+const API_BASE = "/api";
 
+function BlogSubscribe() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState({ type: null, text: "" });
+  const [loading, setLoading] = useState(false);
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setStatus({});
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setStatus({ type: "success", text: data.message || "Subscribed!" });
+        setEmail("");
+      } else {
+        setStatus({ type: "error", text: data.error || "Subscription failed." });
+      }
+    } catch {
+      setStatus({ type: "error", text: "Network error. Try again." });
+    } finally {
+      setLoading(false);
+    }
+  };
+  return (
+    <div className="mt-16 bg-gradient-to-r from-blue-900 to-black rounded-3xl p-8 sm:p-12 text-center text-white">
+      <h3 className="text-xl sm:text-2xl font-bold">
+        Don't Miss Our Latest Updates 🚀
+      </h3>
+      <p className="text-gray-300 mt-3 max-w-xl mx-auto">
+        Subscribe to get the latest blogs, career tips & IT trends directly in your inbox.
+      </p>
+      <form onSubmit={handleSubscribe} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-stretch">
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="w-full sm:w-96 px-5 py-4 rounded-xl bg-white text-gray-900 placeholder-gray-400 border border-gray-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-400/40"
+        />
+        <button type="submit" disabled={loading} className="px-8 py-4 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-500 shadow-lg transition disabled:opacity-70">
+          {loading ? "Subscribing..." : "Subscribe Now"}
+        </button>
+      </form>
+      {status.text && (
+        <p className={`mt-3 text-sm ${status.type === "success" ? "text-green-300" : "text-red-300"}`}>{status.text}</p>
+      )}
+    </div>
+  );
+}
 
 function LatestBlogs() {
-  const blogs = [
-    {
-      id: 1,
-      image: blog1,
-      title: "How IT Certifications Boost Your Career",
-      desc: "Discover why IT certifications are essential for career growth and better opportunities.",
-    },
-    {
-      id: 2,
-      image: blog2,
-      title: "Why Cloud Skills Are in High Demand",
-      desc: "Cloud computing is shaping the future of IT. Learn why companies are hiring cloud experts.",
-    },
-    {
-      id: 3,
-      image: blog3,
-      title: "DevOps Roadmap for Freshers",
-      desc: "A beginner-friendly guide to start your DevOps journey with the right skills.",
-    },
-  ];
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/blogs`)
+      .then((res) => res.json())
+      .then((data) => setBlogs(Array.isArray(data) ? data : []))
+      .catch(() => setBlogs([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const blogsWithImages = blogs.map((b) => ({
+    ...b,
+    image: blogImages[b.imageKey] || blog1,
+  }));
 
   return (
     <section className="py-16 bg-gray-50">
@@ -37,7 +89,7 @@ function LatestBlogs() {
 
         {/* BLOG CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+          {(loading ? [] : blogsWithImages).map((blog) => (
             <div
               key={blog.id}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
@@ -67,53 +119,8 @@ function LatestBlogs() {
           ))}
         </div>
 
-      {/* CTA / SUBSCRIBE SECTION */}
-<div className="mt-16 bg-gradient-to-r from-blue-900 to-black rounded-3xl p-8 sm:p-12 text-center text-white">
-  <h3 className="text-xl sm:text-2xl font-bold">
-    Don’t Miss Our Latest Updates 🚀
-  </h3>
-
-  <p className="text-gray-300 mt-3 max-w-xl mx-auto">
-    Subscribe to get the latest blogs, career tips & IT trends directly in your inbox.
-  </p>
-
-  {/* FORM */}
-  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-stretch">
-
-    {/* INPUT */}
-    <input
-      type="email"
-      placeholder="Enter your email address"
-      className="
-        w-full sm:w-96
-        px-5 py-4
-        rounded-xl
-        bg-white text-gray-900
-        placeholder-gray-400
-        border border-gray-300
-        shadow-lg
-        focus:outline-none
-        focus:ring-4 focus:ring-blue-400/40
-      "
-    />
-
-    {/* BUTTON */}
-    <button
-      className="
-        px-8 py-4
-        rounded-xl
-        bg-yellow-400 text-black
-        font-bold
-        hover:bg-yellow-500
-        shadow-lg
-        transition
-      "
-    >
-      Subscribe Now
-    </button>
-  </div>
-</div>
-
+        {/* CTA / SUBSCRIBE SECTION */}
+        <BlogSubscribe />
 
       </div>
     </section>

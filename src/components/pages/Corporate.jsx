@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import CorporateEnquiryModal from "../CorporateEnquiryModal.jsx";
 
 function Corporate() {
+  const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+
   return (
     <div className="w-full bg-gray-50 text-gray-800">
 
@@ -13,7 +16,7 @@ function Corporate() {
           Empowering organizations with industry-ready skills to accelerate
           performance, productivity, and growth.
         </p>
-        <button className="mt-8 px-8 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition">
+        <button onClick={() => setShowEnquiryForm(true)} className="mt-8 px-8 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition">
           Request Training Proposal
         </button>
       </section>
@@ -163,15 +166,16 @@ function Corporate() {
         </p>
 
         <div className="flex flex-col md:flex-row justify-center gap-6">
-          <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition">
+          <button onClick={() => setShowEnquiryForm(true)} className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition">
             Talk to a Training Expert
           </button>
-          <button className="px-8 py-3 border border-white rounded-xl hover:bg-white hover:text-blue-600 transition">
+          <button onClick={() => setShowEnquiryForm(true)} className="px-8 py-3 border border-white rounded-xl hover:bg-white hover:text-blue-600 transition">
             Schedule Free Demo
           </button>
         </div>
       </section>
 
+      {showEnquiryForm && <CorporateEnquiryModal onClose={() => setShowEnquiryForm(false)} />}
     </div>
   );
 }
