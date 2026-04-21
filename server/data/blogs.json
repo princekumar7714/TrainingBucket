@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "imageKey": "blog1",
+    "title": "How IT Certifications Boost Your Career",
+    "desc": "Discover why IT certifications are essential for career growth and better opportunities."
+  },
+  {
+    "id": 2,
+    "imageKey": "blog2",
+    "title": "Why Cloud Skills Are in High Demand",
+    "desc": "Cloud computing is shaping the future of IT. Learn why companies are hiring cloud experts."
+  },
+  {
+    "id": 3,
+    "imageKey": "blog3",
+    "title": "DevOps Roadmap for Freshers",
+    "desc": "A beginner-friendly guide to start your DevOps journey with the right skills."
+  }
+]

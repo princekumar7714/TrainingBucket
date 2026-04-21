@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1771746383817",
+    "courseId": "16",
+    "courseTitle": "Ethical Hacking",
+    "viewedAt": "2026-02-22T07:46:23.817Z"
+  },
+  {
+    "id": "1771746383834",
+    "courseId": "16",
+    "courseTitle": "Ethical Hacking",
+    "viewedAt": "2026-02-22T07:46:23.834Z"
+  },
+  {
+    "id": "1771746693867",
+    "courseId": "13",
+    "courseTitle": "AWS Cloud Practitioner",
+    "viewedAt": "2026-02-22T07:51:33.867Z"
+  },
+  {
+    "id": "1771746693870",
+    "courseId": "13",
+    "courseTitle": "AWS Cloud Practitioner",
+    "viewedAt": "2026-02-22T07:51:33.870Z"
+  },
+  {
+    "id": "1771746998809",
+    "courseId": "3",
+    "courseTitle": "React JS",
+    "viewedAt": "2026-02-22T07:56:38.809Z"
+  },
+  {
+    "id": "1771746998812",
+    "courseId": "3",
+    "courseTitle": "React JS",
+    "viewedAt": "2026-02-22T07:56:38.812Z"
+  },
+  {
+    "id": "1771747025923",
+    "courseId": "6",
+    "courseTitle": "Python Programming",
+    "viewedAt": "2026-02-22T07:57:05.923Z"
+  },
+  {
+    "id": "1771747025926",
+    "courseId": "6",
+    "courseTitle": "Python Programming",
+    "viewedAt": "2026-02-22T07:57:05.926Z"
+  },
+  {
+    "id": "1771747116407",
+    "courseId": "21",
+    "courseTitle": "C Programming",
+    "viewedAt": "2026-02-22T07:58:36.407Z"
+  },
+  {
+    "id": "1771747116410",
+    "courseId": "21",
+    "courseTitle": "C Programming",
+    "viewedAt": "2026-02-22T07:58:36.410Z"
+  },
+  {
+    "id": "1771748031033",
+    "courseId": "9",
+    "courseTitle": "Machine Learning",
+    "viewedAt": "2026-02-22T08:13:51.033Z"
+  },
+  {
+    "id": "1771748031037",
+    "courseId": "9",
+    "courseTitle": "Machine Learning",
+    "viewedAt": "2026-02-22T08:13:51.037Z"
+  }
+]
