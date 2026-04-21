@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
-import faqs from "../assets/faqs-img/faqs-img.png";
+import faqs from "../assets/faqs-img/Faqs-img.png";
 
 function Faqs() {
   const [openIndex, setOpenIndex] = useState(null);

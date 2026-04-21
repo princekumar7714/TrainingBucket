@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logoo from "../../src/assets/bucket-logo.jpg";
+import logoo from "../assets/bucket-logo.jpg";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
