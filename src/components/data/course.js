@@ -1,28 +1,28 @@
  import frontend from "../../assets/frontend-img.jpg";
- import webdev from "../../assets/web-Development.jpg";
- import  mern from "../../assets/mern.jpg" 
- import  angular from "../../assets/angular.jpg" 
- import  nodejs from "../../assets/node.jpg" 
- import  python from "../../assets/python.jpg" 
- import  java from "../../assets/java.png" 
- import  algo from "../../assets/algo.jpg" 
- import  machine from "../../assets/machine-Learning.jpg" 
- import  ai from "../../assets/AI.jpg" 
- import  data from "../../assets/data-Science.jpg" 
- import  sql from "../../assets/sql.png" 
- import  aws from "../../assets/aws.jpg" 
- import  devops from "../../assets/devops.jpg" 
- import  cyber from "../../assets/cyber.jpg" 
- import  hacking from "../../assets/Ethical.jpg" 
- import  Ui from "../../assets/Ui-UX.jpg" 
- import  design from "../../assets/Graphic.jpg" 
- import  android from "../../assets/android.jpg" 
- import  app from "../../assets/app.jpg" 
- import  c from "../../assets/c.jpg" 
- import  cprogram from "../../assets/c++.jpg" 
- import  power from "../../assets/power bi.jpg" 
- import  tab from "../../assets/Tabeluau.jpg" 
- import  testing from "../../assets/testing.jpg" 
+ import webdev from "../../assets/web-development.jpg";
+ import  mern from "../../assets/mern.jpg"; 
+ import  angular from "../../assets/angular.jpg"; 
+ import  nodejs from "../../assets/Node.jpg"; 
+ import  python from "../../assets/python.jpg"; 
+ import  java from "../../assets/java.png"; 
+ import  algo from "../../assets/algo.jpg"; 
+ import  machine from "../../assets/machine-learning.jpg"; 
+ import  ai from "../../assets/Ai.jpg"; 
+ import  data from "../../assets/data-science.jpg"; 
+ import  sql from "../../assets/sql.png"; 
+ import  aws from "../../assets/aws.jpg"; 
+ import  devops from "../../assets/devops.jpg"; 
+ import  cyber from "../../assets/cyber.jpg"; 
+ import  hacking from "../../assets/ethical.jpg"; 
+ import  Ui from "../../assets/ui-ux.jpg"; 
+ import  design from "../../assets/graphic.jpg"; 
+ import  android from "../../assets/android.jpg"; 
+ import  app from "../../assets/app.jpg"; 
+ import  c from "../../assets/c.jpg"; 
+ import  cprogram from "../../assets/c++.jpg"; 
+ import  power from "../../assets/power bi.jpg"; 
+ import  tab from "../../assets/tabeluau.jpg"; 
+ import  testing from "../../assets/testing.jpg"; 
  const itCourses = [
   {
     id: 1,
